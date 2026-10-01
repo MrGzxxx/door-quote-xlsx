@@ -80,6 +80,17 @@ python generate_quote.py --items 明细.csv --config 我的配置.json --out 对
 
 > 说明：之所以走「Excel → PDF」而不是直接用库生成 PDF，是为了完全避开中文字体/乱码问题——排版交给 Excel 引擎，任何机器上打开都不会乱码。
 
+## 常见问题（FAQ）
+
+**Q：生成的文件中文会乱码吗？**
+不会。xlsx 由 Excel 引擎负责排版渲染，中文、货币符号都不会乱码；CSV 输入请用 UTF-8 编码（本工具同时兼容 GB18030）。
+
+**Q：可以改税率吗？**
+可以。`config.json` 里改 `tax_rate`（如 0.06、0.09），并同步改 `tax_label` 显示名即可。
+
+**Q：多家公司的报价模板怎么管？**
+复制多份配置（如 `config-A公司.json`），生成时用 `--config` 指定对应文件即可。
+
 ## 许可
 
 MIT License，可自由商用（保留版权声明即可）。
